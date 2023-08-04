@@ -18,12 +18,10 @@ Pollito es un versátil bot de Discord que actúa como un portal entre una base 
    cd bot-discord-pollito```
 2. Instala las dependencias:
    ```sh
-   npm install
-  ```
+   npm install```
 3. Ejecuta el bot:
 ```sh
-node index.js
-```
+node index.js```
 
 ## Comando `/alimentos`
 
