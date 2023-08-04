@@ -26,3 +26,11 @@ pollito.on('messageCreate', (message) => {
         message.reply('pong');
     }
 });
+
+pollito.on('interactionCreate', (interaction) => {
+
+    if (!interaction.isChatInputCommand()) return;
+
+    const nombre = interaction.options.get('nombre-alimento')?.value;
+  
+});
