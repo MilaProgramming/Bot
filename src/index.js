@@ -1,8 +1,7 @@
-const {Client, GatewayIntentBits} = require('discord.js');
+const {Client, GatewayIntentBits, MessageEmbed, EmbedBuilder} = require('discord.js');
 require('dotenv').config();
 const axios = require('axios');
-
-const prefix = '!';
+const WOKCommands = require('wokcommands');
 
 //Instents es un set de permisos para dar acceso a sets de eventos
 
@@ -38,33 +37,63 @@ pollito.on('interactionCreate', async interaction => {
 
     if(interaction.commandName === 'alimentos'){ 
 
-        let getAlimentos = async () => {
+        ( async () => {
 
-        let config = {
-                method: 'get',
-                maxBodyLength: Infinity,
-                url: 'https://us-east-1.aws.data.mongodb-api.com/app/botdiscord-pxxiu/endpoint/pollitoAlimentos',
-                headers: { 
-                  'api-key': 'WS13QVMfhcM5TqLvkdIev4IfD50p8aFMIvOayeMiQQg0xONpuNkJWqnmyO4LRPrn'
-                }
-        };
-            
-        let response =     axios.request(config)
-                .then((response) => {
-                console.log(JSON.stringify(response.data));
-                })
-                .catch((error) => {
-                console.log(error);
-                });
+            let config = {
+                    method: 'get',
+                    maxBodyLength: Infinity,
+                    url: 'https://us-east-1.aws.data.mongodb-api.com/app/botdiscord-pxxiu/endpoint/pollitoAlimentos',
+                    headers: { 
+                    'api-key':  process.env.API
+                    }
+            };
+                
+            axios.request(config)
+                    .then((response) => {
+                        console.log(JSON.stringify(response.data));
 
-        let result = response.data;
+                        const obj  = JSON.parse(JSON.stringify(response.data));
+                        console.log(obj);
 
-        return result;
+                                const embed = new EmbedBuilder()
+                                .setTitle('Alimentos')
+                                .setColor('#Ffadfd')
+                                .setDescription('Comidas desde mi MongoRealm');
 
-        }
+                        obj.forEach(food => {
+                            embed.addFields(
+                                { name: 'Nombre', value: food.nombreAlimento, inline: true },
+                                { name: 'Tipo', value: food.dietaAlimento, inline: true },
+                                { name: '** **', value:'** **'}
+                            );
+                            });
 
-        let valor = await getAlimentos();
-        console.log(valor);
+                            interaction.reply({ embeds: [embed] });
+                    })
+                    .catch((error) => {
+                    console.log(error);
+                    });
+
+        })();
+
+
+        // const fields = valor.map(food => {
+        //     return {
+        //         name: food.nombreAlimento,
+        //         value: `Price: ${food.precioUnidadAlimento}\nExpires: ${food.fechaCaducidad}\nDiet: ${food.dietaAlimento}`,
+        //     };
+        // });
+
+        // const embed = new EmbedBuilder()
+        // .setTitle('Alimentos')
+        // .setColor('#00FF00')
+        // .addFields({
+        //     fields
+        // }) 
+
+
+        // interaction.reply({ embeds: [embed] });
+  
 
 
     }
