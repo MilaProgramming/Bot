@@ -20,8 +20,8 @@ Pollito es un versátil bot de Discord que actúa como un portal entre una base 
    ```sh
    npm install```
 3. Ejecuta el bot:
-```sh
-node index.js```
+   ```sh
+   node .```
 
 ## Comando `/alimentos`
 
