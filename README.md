@@ -15,7 +15,7 @@ Pollito es un versátil bot de Discord que actúa como un portal entre una base 
 1. Clona el repositorio:
    ```sh
    git clone https://github.com/tunombredeusuario/bot-discord-pollito.git
-   cd bot-discord-pollito```
+   cd bot-discord-pollito
 2. Instala las dependencias:
    ```sh
    npm install
