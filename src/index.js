@@ -1,4 +1,4 @@
-const {Client, GatewayIntentBits, MessageEmbed, EmbedBuilder} = require('discord.js');
+const {Client, GatewayIntentBits, MessageEmbed, EmbedBuilder, TextChannel} = require('discord.js');
 require('dotenv').config();
 const Realm = require("realm");
 const {PaginatedEmbed} = require('embed-paginator');
@@ -249,7 +249,7 @@ pollito.on('interactionCreate', async interaction => {
         
 
         const receta = interaction.options.getString('nombre-receta');
-        console.log(receta.toLowerCase());
+        console.log(receta);
 
         //Si se especifica una receta en especifico
         if (receta) {
@@ -289,8 +289,8 @@ pollito.on('interactionCreate', async interaction => {
 
 
                     embed.addFields(
-                        { name: 'Nombre', value: food.nombreReceta},
-                        { name: 'Dificultad', value: food.dificultadReceta},
+                        { name: 'Nombre', value: food.nombreReceta, inline: true },
+                        { name: 'Dificultad', value: food.dificultadReceta, inline: true },
                     );
 
 
@@ -301,60 +301,154 @@ pollito.on('interactionCreate', async interaction => {
             });
 
         }else{
-        //Si no se especifica un alimento en especifico
-            // ( async () => {
+        //Si no se especifica una receta en especifico
+            ( async () => {
 
-            //     let config = {
-            //             method: 'get',
-            //             maxBodyLength: Infinity,
-            //             url: 'https://us-east-1.aws.data.mongodb-api.com/app/botdiscord-pxxiu/endpoint/pollitoAlimentos',
-            //             headers: { 
-            //             'api-key':  process.env.API
-            //             }
-            //     };
+                let config = {
+                        method: 'get',
+                        maxBodyLength: Infinity,
+                        url: 'https://us-east-1.aws.data.mongodb-api.com/app/botdiscord-pxxiu/endpoint/getRecetas',
+                        headers: { 
+                        'api-key':  process.env.API
+                        }
+                };
                     
-            //     axios.request(config)
-            //             .then((response) => {
-            //                 console.log(JSON.stringify(response.data));
+                axios.request(config)
+                        .then((response) => {
+                            console.log(JSON.stringify(response.data));
 
-            //                 const obj  = JSON.parse(JSON.stringify(response.data));
-            //                 console.log(obj);
+                            const obj  = JSON.parse(JSON.stringify(response.data));
+                            console.log(obj);
 
-            //                         const embed = new EmbedBuilder()
-            //                         .setTitle('Alimentos')
-            //                         .setColor('#Ffadfd')
-            //                         .setDescription('Comidas desde mi MongoRealm');
+                                    const embed = new EmbedBuilder()
+                                    .setTitle('Recetas')
+                                    .setColor('#Ffadfd')
+                                    .setDescription('Recetas desde mi MongoRealm');
 
-            //                 let count = 0;
-            //                 obj.forEach(food => {
-            //                     if(count > 4) return;
+                            let count = 0;
+                            obj.forEach(food => {
+                                if(count > 4) return;
 
-            //                     embed.addFields(
-            //                         { name: 'Nombre', value: food.nombreAlimento, inline: true },
-            //                         { name: 'Tipo', value: food.dietaAlimento, inline: true },
-            //                         { name: 'Disponible', value: food.enAlacena ? 'Si' : 'No', inline: true },
-            //                     );
+                                embed.addFields(
+                                    { name: 'Nombre', value: food.nombreReceta, inline: true},
+                                    { name: 'Dificultad', value: food.dificultadReceta, inline: true},
+                                );
 
-            //                     count++;
+                                count++;
 
-            //                     });
+                                });
 
-            //                     interaction.reply({ embeds: [embed] });
-            //             })
-            //             .catch((error) => {
-            //                 console.log(error);
+                                interaction.reply({ embeds: [embed] });
+                        })
+                        .catch((error) => {
+                            console.log(error);
 
-            //                 const embed = new EmbedBuilder()
-            //                 .setTitle('Ocurrió un error')
-            //                 .setColor('#B41282')
-            //                 .setDescription(`Lo más probable es que no tengamos alimentos en el sistema. ¿qué tal agregar unos cuantos antes de empezar?`);
-            //                 interaction.reply({ embeds: [embed] });
-            //             });
+                            const embed = new EmbedBuilder()
+                            .setTitle('Ocurrió un error')
+                            .setColor('#B41282')
+                            .setDescription(`Lo más probable es que no tengamos alimentos en el sistema. ¿qué tal agregar unos cuantos antes de empezar?`);
+                            interaction.reply({ embeds: [embed] });
+                        });
 
-            // })();
+            })();
         }
 
         
+
+    }
+
+});
+
+//Paso a paso receta
+pollito.on('interactionCreate', async interaction => {
+
+    if (!interaction.isChatInputCommand()) return;
+    //Funcion que agrega un alimento a la BD 
+    if(interaction.commandName === 'paso-receta'){
+
+        const nombre = interaction.options.getString('nombre-receta');
+        console.log(nombre);
+
+        let config = {
+            method: 'get',
+            maxBodyLength: Infinity,
+            url: `https://us-east-1.aws.data.mongodb-api.com/app/botdiscord-pxxiu/endpoint/getNombreReceta?nombreReceta=${nombre.toLowerCase()}`,
+            headers: { 
+              'api-key': process.env.API
+            }
+          };
+
+      
+        axios.request(config)
+        .then((response) => {
+
+            if(!response.data){
+                const embed = new EmbedBuilder()
+                .setTitle('No se ha encontrado la receta')
+                .setColor('#B41282')
+                .setDescription(`Intenta con algo que pueda existir`);
+                interaction.reply({ embeds: [embed] });
+
+                return;
+            }
+
+            console.log(JSON.stringify(response.data));
+
+            const food  = JSON.parse(JSON.stringify(response.data));
+            console.log(food);
+
+            const descripcion = food.descripcionReceta;
+            console.log(descripcion);
+
+            const alimentos = food.alimentos;
+            console.log(alimentos);
+
+            const subString = descripcion.split(".");
+            subString.pop();
+            console.log(subString);
+
+            const embed1 = new PaginatedEmbed(
+                {
+                    itemsPerPage: 3,
+                    paginationType: 'both',
+                    showFirstLastBtns: false
+                }).setDescriptions(alimentos)
+                .setFields([
+                    { name: 'Cocina conmigo', value: 'Ingredientes para la receta', inline: true },
+                ])
+                .setTimestamp();
+
+                (async () => {
+
+                    await embed1.send({ options: { channel: interaction.channel } });
+
+                })();
+            
+            const embed = new PaginatedEmbed(
+                {
+                    itemsPerPage: 1,
+                    paginationType: 'both',
+                    showFirstLastBtns: false
+                }).setDescriptions(subString)
+                .setImages([food.imagenReceta])
+                .setFields([
+                    { name: 'Cocina conmigo', value: 'Paso a paso de la receta', inline: true },
+                ])
+                .setTimestamp();
+
+                (async () => {
+
+                    await embed.send({ options: { channel: interaction.channel } });
+
+                })();
+
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+
+
+
 
     }
 

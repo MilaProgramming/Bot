@@ -1,6 +1,5 @@
 const {REST, Routes, ApplicationCommandOptionType} = require('discord.js');
 require('dotenv').config();
-  
 
 const commands = [
     {
@@ -94,9 +93,25 @@ const commands = [
             }
         ]
     },
+    {
+        name: 'paso-receta',
+        description: 'Muestra los pasos de una receta',
+        options: [
+            {
+                name: 'nombre-receta',
+                description: 'Nombre de la receta',
+                type: ApplicationCommandOptionType.String,
+                required: true,
+            }
+        ]
+    }
+   
+
 ]
 
+
 const rest = new REST({version: '10'}).setToken(process.env.TOKEN);
+
 
 (async () => {
 
@@ -112,7 +127,7 @@ const rest = new REST({version: '10'}).setToken(process.env.TOKEN);
 
 
         console.log("Termino el proceso");
-
+        
         
 
     }catch (error){
