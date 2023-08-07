@@ -1,16 +1,22 @@
 # Bot de Discord Pollito
 
-Pollito es un versátil bot de Discord que actúa como un portal entre una base de datos MongoDB que contiene alimentos y recetas. Ayuda a los usuarios a acceder y administrar información relacionada con alimentos a través de comandos intuitivos.
+|             |              | 
+| --------------------- | --------------------- | 
+| ![Bot Pollito](https://i.imgflip.com/1um67c.jpg?a469488)          |  Domina el arte de la preparación con comodidad mientras **Pollito** te mantiene al tanto de las fechas de caducidad, te brinda información sobre los ingredientes y te acompaña en tu búsqueda de la perfección gastronómica. Además, si te encuentras jugando con tus amigos, no tendrás que salir de discord para usarlo. |
 
-![Bot Pollito](https://i.imgflip.com/1um67c.jpg?a469488)
+
+:rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball:
+
 
 ## Características
 
-- Accede a datos de alimentos y recetas desde una base de datos MongoDB.
-- Comandos interactivos con barras para una fácil obtención de datos.
-- Explora, busca y gestiona información de alimentos y recetas de manera conveniente.
+- Accede a datos de alimentos y recetas desde una base de datos MongoDB REALM a tiempo real y de total disponibilidad a cualquier hora del día.
+- Comandos interactivos con barras para una fácil obtención de datos, con ayuda de la interfaz familiar de discord.
+- Explora, agrega y gestiona información de alimentos y recetas de manera conveniente.
 
 ## Instalación y Configuración
+
+### Para su desarrollo
 
 1. Clona el repositorio:
    ```sh
@@ -22,27 +28,29 @@ Pollito es un versátil bot de Discord que actúa como un portal entre una base 
 3. Ejecuta el bot:
    ```sh
    node .
+### Para su uso
 
-## Comando `/alimentos`
+#### Invita a **Pollito** a tu servidor de confianza :rice_ball:
 
-El comando `/alimentos` es una característica central del bot Pollito que permite a los usuarios acceder a la lista de alimentos almacenados en la base de datos. Cuando los usuarios ejecutan este comando, el bot responderá con un embed que muestra la información detallada de cada alimento disponible.
+## Comandos Disponibles
 
-Para usar este comando, simplemente escribe `/alimentos` en cualquier canal de texto donde el bot esté presente.
+### /agregar-alimento
+Agrega un alimento a la base de datos. Te pedirá el nombre, el tipo de alimento (frutas y verduras, proteínas, carbohidratos, complementos o golosinas) y si está disponible. También puedes proporcionar el precio y la fecha de caducidad de manera opcional.
 
-## APIs de MongoDB Realm
+### /alimentos
+Muestra hasta los 5 últimos alimentos agregados a la base de datos. Puedes utilizar un campo opcional para verificar si el alimento que ingresaste existe en la base de datos.
 
-Pollito utiliza dos APIs de MongoDB Realm para acceder a los datos de alimentos y recetas desde la base de datos. A continuación, se describen estas APIs y sus endpoints:
+### /recetas
+Muestra hasta las 5 últimas recetas agregadas. Si proporcionas el nombre de una receta como argumento, podrás verificar su existencia en la base de datos.
 
-### API GET de Alimentos
+### /paso-receta
+Ingresa el nombre de una receta y Pollito te proporcionará dos embeds. Uno contendrá la lista de ingredientes y el otro los pasos detallados para cocinar la receta. ¡Sigue las instrucciones paso a paso para crear platos deliciosos!
 
-- **Endpoint:** `https://us-east-1.aws.data.mongodb-api.com/app/botdiscord-pxxiu/endpoint/pollitoAlimentos`
-- **Ruta:** `/pollitoAlimentos`
-- **Descripción:** Esta API permite realizar una solicitud GET para obtener la lista de alimentos almacenados en la base de datos.
+## Testing
 
-### API POST de Alimentos
+En caso de querer probar la funcionalidad de la base de datos, se encuentra anexado el archivo JSON ```BotDiscord.postman_collection```, que, si se exporta a Postman, se pueden hacer peticiones de forma más sencilla para su prueba
 
-- **Endpoint:** `https://us-east-1.aws.data.mongodb-api.com/app/botdiscord-pxxiu/endpoint/pollitoAlimentosSet`
-- **Ruta:** `/pollitoAlimentosSet`
-- **Descripción:** Esta API permite realizar una solicitud POST para agregar nuevos alimentos o actualizar información existente en la base de datos.
+## Contacto
+Si tienes preguntas, sugerencias o simplemente quieres charlar sobre recetas, no dudes en enviarme un mensaje a mi [usuario de discord](https://discord.com/users/599334013563306005).
 
-En el caso de querer probar el bot, contactar con la autora, y entrar al servidor de pruebas
+
