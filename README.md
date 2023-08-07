@@ -2,7 +2,7 @@
 
 |             |              | 
 | --------------------- | --------------------- | 
-| ![Bot Pollito](https://i.imgflip.com/1um67c.jpg?a469488)          |  Domina el arte de la preparación con comodidad mientras **Pollito** te mantiene al tanto de las fechas de caducidad, te brinda información sobre los ingredientes y te acompaña en tu búsqueda de la perfección gastronómica. Además, si te encuentras jugando con tus amigos, no tendrás que salir de discord para usarlo. |
+| ![Bot Pollito](https://i.imgflip.com/1um67c.jpg?a469488)          |  Domina el arte de la preparación con comodidad mientras :baby_chick:**Pollito**:baby_chick: te mantiene al tanto de las fechas de caducidad, te brinda información sobre los ingredientes y te acompaña en tu búsqueda de la perfección gastronómica. Además, si te encuentras jugando con tus amigos, no tendrás que salir de discord para usarlo. |
 
 
 :rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball::rice_cracker::rice_ball:
@@ -30,7 +30,7 @@
    node .
 ### Para su uso
 
-#### Invita a **Pollito** a tu servidor de confianza :rice_ball:
+#### Invita a :baby_chick:**Pollito**:baby_chick: a tu servidor de confianza :rice_ball:
 
 ## Comandos Disponibles
 
@@ -48,9 +48,9 @@ Ingresa el nombre de una receta y Pollito te proporcionará dos embeds. Uno cont
 
 ## Testing
 
-En caso de querer probar la funcionalidad de la base de datos, se encuentra anexado el archivo JSON ```BotDiscord.postman_collection```, que, si se exporta a Postman, se pueden hacer peticiones de forma más sencilla para su prueba
+En caso de querer probar la funcionalidad de la base de datos, se encuentra anexado el archivo JSON ```BotDiscord.postman_collection```, que, si se exporta a Postman :walking:, se pueden hacer peticiones de forma más sencilla para su prueba
 
 ## Contacto
-Si tienes preguntas, sugerencias o simplemente quieres charlar sobre recetas, no dudes en enviarme un mensaje a mi [usuario de discord](https://discord.com/users/599334013563306005).
+Si tienes preguntas, sugerencias o simplemente quieres charlar sobre recetas, no dudes en enviarme un mensaje a mi [usuario de discord](https://discord.com/users/599334013563306005). :baby_chick:
 
 
