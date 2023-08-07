@@ -1,0 +1,293 @@
+{
+	"info": {
+		"_postman_id": "72840b2f-6d59-4000-8ff4-880973ce5f59",
+		"name": "BotDiscord",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27174945"
+	},
+	"item": [
+		{
+			"name": "GetAlimentos",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "WS13QVMfhcM5TqLvkdIev4IfD50p8aFMIvOayeMiQQg0xONpuNkJWqnmyO4LRPrn",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-east-1.aws.data.mongodb-api.com/app/botdiscord-pxxiu/endpoint/pollitoAlimentos",
+					"protocol": "https",
+					"host": [
+						"us-east-1",
+						"aws",
+						"data",
+						"mongodb-api",
+						"com"
+					],
+					"path": [
+						"app",
+						"botdiscord-pxxiu",
+						"endpoint",
+						"pollitoAlimentos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetNombresAlimentos",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "WS13QVMfhcM5TqLvkdIev4IfD50p8aFMIvOayeMiQQg0xONpuNkJWqnmyO4LRPrn",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-east-1.aws.data.mongodb-api.com/app/botdiscord-pxxiu/endpoint/pollitoAlimentos",
+					"protocol": "https",
+					"host": [
+						"us-east-1",
+						"aws",
+						"data",
+						"mongodb-api",
+						"com"
+					],
+					"path": [
+						"app",
+						"botdiscord-pxxiu",
+						"endpoint",
+						"pollitoAlimentos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetRecetas",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "WS13QVMfhcM5TqLvkdIev4IfD50p8aFMIvOayeMiQQg0xONpuNkJWqnmyO4LRPrn",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-east-1.aws.data.mongodb-api.com/app/botdiscord-pxxiu/endpoint/getRecetas",
+					"protocol": "https",
+					"host": [
+						"us-east-1",
+						"aws",
+						"data",
+						"mongodb-api",
+						"com"
+					],
+					"path": [
+						"app",
+						"botdiscord-pxxiu",
+						"endpoint",
+						"getRecetas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SetAlimentos",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "WS13QVMfhcM5TqLvkdIev4IfD50p8aFMIvOayeMiQQg0xONpuNkJWqnmyO4LRPrn",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-east-1.aws.data.mongodb-api.com/app/botdiscord-pxxiu/endpoint/pollitoAlimentosSet?nombreAlimento=Arándanos&precioUnidadAlimento=4.55&fechaCaducidad=2023-04-04&enAlacena=true&dietaAlimento=Frutas y Verduras",
+					"protocol": "https",
+					"host": [
+						"us-east-1",
+						"aws",
+						"data",
+						"mongodb-api",
+						"com"
+					],
+					"path": [
+						"app",
+						"botdiscord-pxxiu",
+						"endpoint",
+						"pollitoAlimentosSet"
+					],
+					"query": [
+						{
+							"key": "nombreAlimento",
+							"value": "Arándanos"
+						},
+						{
+							"key": "precioUnidadAlimento",
+							"value": "4.55"
+						},
+						{
+							"key": "fechaCaducidad",
+							"value": "2023-04-04"
+						},
+						{
+							"key": "enAlacena",
+							"value": "true"
+						},
+						{
+							"key": "dietaAlimento",
+							"value": "Frutas y Verduras"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SetRecetas",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "WS13QVMfhcM5TqLvkdIev4IfD50p8aFMIvOayeMiQQg0xONpuNkJWqnmyO4LRPrn",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-east-1.aws.data.mongodb-api.com/app/botdiscord-pxxiu/endpoint/setReceta?nombreReceta=huevo frito&descripcionReceta=Prende el sartén y echa aceite. Rompe el huevo. Sirve con sal y amor.&alimentos=[{huevo}, {aceite}, {sal}]&imagenReceta=https://i.blogs.es/50bf3f/huevo-frito-puntilla/840_560.jpg&dificultadReceta=Facil",
+					"protocol": "https",
+					"host": [
+						"us-east-1",
+						"aws",
+						"data",
+						"mongodb-api",
+						"com"
+					],
+					"path": [
+						"app",
+						"botdiscord-pxxiu",
+						"endpoint",
+						"setReceta"
+					],
+					"query": [
+						{
+							"key": "nombreReceta",
+							"value": "huevo frito"
+						},
+						{
+							"key": "descripcionReceta",
+							"value": "Prende el sartén y echa aceite. Rompe el huevo. Sirve con sal y amor."
+						},
+						{
+							"key": "alimentos",
+							"value": "[{huevo}, {aceite}, {sal}]"
+						},
+						{
+							"key": "imagenReceta",
+							"value": "https://i.blogs.es/50bf3f/huevo-frito-puntilla/840_560.jpg"
+						},
+						{
+							"key": "dificultadReceta",
+							"value": "Facil"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAlimentosNombre",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "WS13QVMfhcM5TqLvkdIev4IfD50p8aFMIvOayeMiQQg0xONpuNkJWqnmyO4LRPrn",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-east-1.aws.data.mongodb-api.com/app/botdiscord-pxxiu/endpoint/getNombrePollito?nombreAlimento=Miel",
+					"protocol": "https",
+					"host": [
+						"us-east-1",
+						"aws",
+						"data",
+						"mongodb-api",
+						"com"
+					],
+					"path": [
+						"app",
+						"botdiscord-pxxiu",
+						"endpoint",
+						"getNombrePollito"
+					],
+					"query": [
+						{
+							"key": "nombreAlimento",
+							"value": "Miel"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getRecetasNombre",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "WS13QVMfhcM5TqLvkdIev4IfD50p8aFMIvOayeMiQQg0xONpuNkJWqnmyO4LRPrn",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-east-1.aws.data.mongodb-api.com/app/botdiscord-pxxiu/endpoint/getNombreReceta?nombreReceta=huevo frito",
+					"protocol": "https",
+					"host": [
+						"us-east-1",
+						"aws",
+						"data",
+						"mongodb-api",
+						"com"
+					],
+					"path": [
+						"app",
+						"botdiscord-pxxiu",
+						"endpoint",
+						"getNombreReceta"
+					],
+					"query": [
+						{
+							"key": "nombreReceta",
+							"value": "huevo frito"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "APIBotRealm",
+			"value": "api-key"
+		},
+		{
+			"key": "APIRealm",
+			"value": "YurSt2MtBYcKhkDhaHpGbZkG2y58xFGb764HI5ZvZsJiyuUxXKohcF4yP4FhUd67"
+		}
+	]
+}
