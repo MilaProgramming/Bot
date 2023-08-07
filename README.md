@@ -46,6 +46,9 @@ Muestra hasta las 5 últimas recetas agregadas. Si proporcionas el nombre de una
 ### /paso-receta
 Ingresa el nombre de una receta y Pollito te proporcionará dos embeds. Uno contendrá la lista de ingredientes y el otro los pasos detallados para cocinar la receta. ¡Sigue las instrucciones paso a paso para crear platos deliciosos!
 
+### /alimento-receta
+Ingresa el nombre de un alimento, y encuentra el paso a paso de la primera receta que tengamos en la Base de datos. Te gustará mucho.
+
 ## Testing
 
 En caso de querer probar la funcionalidad de la base de datos, se encuentra anexado el archivo JSON ```BotDiscord.postman_collection```, que, si se exporta a Postman :walking:, se pueden hacer peticiones de forma más sencilla para su prueba
